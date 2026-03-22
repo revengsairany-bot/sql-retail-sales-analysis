@@ -1,20 +1,26 @@
-# 📊 SQL Retail Sales Analysis
+🛒 SQL Retail Sales Analysis
 
-## 📌 Overview
-This project analyzes retail transaction data using SQL to uncover key business insights around revenue, customers, and geographic performance.
+📌 Project Overview
 
-The goal is to simulate real-world business analysis by transforming raw transactional data into actionable insights.
+This project analyzes retail transaction data using SQL to uncover key business insights around revenue distribution, customer behavior, and market performance.
+
+The goal is to demonstrate the ability to:
+
+- Write efficient SQL queries
+- Analyze large datasets
+- Translate data into actionable business insights
 
 ---
 
-## 📂 Dataset
-The dataset contains retail transaction data including:
+📂 Dataset
+
+The dataset contains transactional retail data with the following key fields:
 
 - Country
-- CustomerID
 - Quantity
 - UnitPrice
 - InvoiceDate
+- CustomerID
 
 ---
 
@@ -32,40 +38,37 @@ ORDER BY revenue DESC
 LIMIT 10;
 ```
 
----
-
-## 📸 Sample Output
+📸 Sample Output
 
 ![Revenue by Country](revenue-by-country-top10.png)
+---
+
+💡 Business Insights
+
+- The United Kingdom generates the overwhelming majority of total revenue
+- Revenue is highly concentrated in a single market, with the UK contributing over 90% of total sales
+- Secondary markets such as the Netherlands and EIRE generate revenue, but at a much smaller scale
+- The steep drop-off after the UK indicates limited international market penetration
 
 ---
 
-## 💡 Business Insights
-
-- The United Kingdom generates the overwhelming majority of total revenue  
-- Revenue is highly concentrated in a single market, with the UK contributing over 90% of total sales  
-- Secondary markets such as the Netherlands and EIRE generate revenue, but at a much smaller scale  
-- The steep drop-off after the UK indicates limited international market penetration  
-
----
-
-## 📌 Key Finding
+🔑 Key Finding
 
 The business is heavily dependent on the United Kingdom, creating both a major strength and a potential risk due to lack of diversification.
 
 ---
 
-## 💡 Recommendations
+🚀 Recommendations
 
-- Expand marketing efforts in high-performing secondary markets  
-- Investigate why the UK significantly outperforms other regions (pricing, logistics, demand)  
-- Diversify revenue streams across multiple countries to reduce risk  
+- Expand marketing efforts in high-performing secondary markets (Netherlands, Germany)
+- Investigate why the UK significantly outperforms other regions (pricing, logistics, demand)
+- Diversify revenue streams across multiple countries to reduce risk
 
 ---
 
-## 👥 Customer Analysis
+👥 Customer Analysis
 
-### 2. Top Customers by Revenue
+2. Top Customers by Revenue
 
 ```sql
 SELECT 
@@ -79,19 +82,18 @@ LIMIT 10;
 
 ---
 
-## 🚀 Next Steps
+📈 Next Steps
 
-- Perform customer segmentation (high-value vs low-value customers)  
-- Analyze product-level performance  
-- Build a dashboard in Tableau or Power BI for visualization  
+- Perform customer segmentation (high-value vs low-value customers)
+- Analyze product-level performance
+- Build a dashboard in Tableau or Power BI for visualization
 
 ---
 
-## 📈 Project Value
+📊 Project Value
 
 This project demonstrates the ability to:
 
-- Write SQL queries to analyze large datasets  
-- Transform raw data into meaningful business insights  
-- Think critically about business performance and strategy  
-- Communicate findings clearly
+- Write SQL queries to analyze large datasets
+- Transform raw data into meaningful business insights
+- Think critically about business performance and strategy
