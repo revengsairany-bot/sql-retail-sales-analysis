@@ -35,6 +35,20 @@ SELECT
     || '-' ||
     printf('%02d', CAST(substr(InvoiceDate, 1, instr(InvoiceDate, '/') - 1) AS INTEGER)) AS month,
 
+
+    -- =========================
+-- 4. Top Products by Revenue
+-- =========================
+SELECT 
+    Description,
+    ROUND(SUM(Quantity * UnitPrice), 2) AS revenue
+FROM retail
+WHERE Description IS NOT NULL
+GROUP BY Description
+ORDER BY revenue DESC
+LIMIT 10;
+
+
     ROUND(SUM(Quantity * UnitPrice), 2) AS revenue
 
 FROM retail
