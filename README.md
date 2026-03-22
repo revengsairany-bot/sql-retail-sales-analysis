@@ -2,9 +2,9 @@
 
 📌 Project Overview
 
-This project analyzes retail transaction data using SQL to uncover key business insights related to revenue distribution, customer behavior, and sales trends over time.
+This project analyzes retail transaction data using SQL to uncover key business insights related to revenue distribution, customer behavior, product performance, and sales trends over time.
 
-The objective is to demonstrate real-world data analysis skills including aggregation, filtering, grouping, and handling messy date formats.
+The goal is to demonstrate real-world data analysis skills including aggregation, filtering, grouping, and transforming messy date formats into usable time-series data.
 
 ---
 
@@ -45,7 +45,7 @@ LIMIT 10;
 
 - The United Kingdom generates the overwhelming majority of revenue
 - Revenue is highly concentrated in a single market
-- Other countries contribute significantly less, indicating limited global distribution
+- Other countries contribute significantly less, indicating limited global reach
 
 ---
 
@@ -70,7 +70,7 @@ LIMIT 10;
 
 - A small number of customers drive a large portion of total revenue
 - Indicates strong customer concentration
-- Highlights the importance of retention and high-value customer targeting
+- Highlights the importance of retention and targeting high-value customers
 
 ---
 
@@ -101,7 +101,32 @@ ORDER BY month;
 
 - Revenue trends upward over time, indicating business growth
 - Noticeable spikes suggest seasonal demand patterns
-- Later months show stronger performance, possibly driven by holidays or scaling
+- Later months show stronger performance, possibly driven by holidays
+
+---
+
+🛍️ 4. Top Products by Revenue
+
+```sql
+SELECT 
+    Description,
+    ROUND(SUM(Quantity * UnitPrice), 2) AS revenue
+FROM retail
+WHERE Description IS NOT NULL
+GROUP BY Description
+ORDER BY revenue DESC
+LIMIT 10;
+```
+
+📊 Output:
+
+![Top Products](images/top-products-by-revenue.png)
+
+💡 Insights:
+
+- A small number of products generate the majority of revenue
+- Identifies best-selling items for optimization and marketing
+- Highlights opportunities for inventory and pricing strategies
 
 ---
 
@@ -109,7 +134,22 @@ ORDER BY month;
 
 - Revenue is heavily concentrated in the United Kingdom
 - A small group of customers contributes a large share of total sales
-- Sales trends show growth over time with potential seasonality
+- Sales trends show consistent growth with signs of seasonality
+- A limited number of products drive the majority of revenue
+
+---
+
+📊 Dashboard
+
+"Dashboard" (images/dashboard.png)
+
+This dashboard provides a high-level overview of:
+
+- Revenue by country
+- Monthly revenue trends
+- Top customers
+
+It helps visualize key performance drivers and business trends.
 
 ---
 
@@ -117,6 +157,7 @@ ORDER BY month;
 
 - SQL (SQLite)
 - DB Browser for SQLite
+- Tableau Public
 - GitHub
 
 ---
@@ -128,13 +169,15 @@ This project demonstrates:
 - Writing real-world SQL queries
 - Aggregating and analyzing transactional data
 - Cleaning and transforming non-standard date formats
-- Identifying business insights from raw datasets
-- Presenting results clearly with visuals
+- Performing customer and product-level analysis
+- Building a dashboard to visualize insights
+- Communicating findings clearly with visuals
 
 ---
 
 📁 Project Structure
 
+```
 sql-retail-sales-analysis/
 │
 ├── README.md
@@ -142,4 +185,7 @@ sql-retail-sales-analysis/
 └── images/
     ├── revenue-by-country-top10.png
     ├── top-customers-by-revenue.png
-    └── monthly-revenue.png
+    ├── monthly-revenue.png
+    ├── top-products-by-revenue.png
+    └── dashboard.png
+```
