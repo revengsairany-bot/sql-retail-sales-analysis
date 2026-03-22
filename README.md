@@ -4,7 +4,7 @@
 
 This project analyzes international retail transaction data to uncover revenue trends, customer behavior, and geographic performance using SQL.
 
-The goal is to simulate real-world business analysis and provide actionable insights that could support decision-making in a retail company.
+The goal is to simulate real-world business analysis and provide actionable insights that support decision-making in a retail business.
 
 ---
 
@@ -19,7 +19,7 @@ The goal is to simulate real-world business analysis and provide actionable insi
 📂 Dataset
 
 - Online Retail Dataset
-- Contains transaction-level data including:
+- Contains transactional data including:
   - Customer ID
   - Country
   - Quantity
@@ -37,7 +37,12 @@ SELECT
     ROUND(SUM(Quantity * UnitPrice), 2) AS revenue
 FROM retail
 GROUP BY Country
-ORDER BY revenue DESC;
+ORDER BY revenue DESC
+LIMIT 10;
+
+📸 Sample Output
+
+"Revenue by Country" (revenue-by-country-top10.png)
 
 ---
 
@@ -64,9 +69,22 @@ The business is heavily dependent on the United Kingdom, creating both a major s
 
 ---
 
+📊 Customer Analysis
+
+2. Top Customers by Revenue
+
+SELECT 
+    CustomerID,
+    ROUND(SUM(Quantity * UnitPrice), 2) AS revenue
+FROM retail
+GROUP BY CustomerID
+ORDER BY revenue DESC
+LIMIT 10;
+
+---
+
 🚀 Next Steps
 
-- Identify top customers by revenue
 - Perform customer segmentation (high-value vs low-value customers)
 - Analyze product-level performance
 - Build a dashboard in Tableau or Power BI for visualization
